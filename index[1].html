@@ -1,67 +1,749 @@
-<!doctype html>
+<!doctype html><!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Portfólio de João Victor Magalhães — Análise de Dados, Power BI, SQL e Excel.">
-<title>João Victor Magalhães | Analista de Dados</title>
-<style>
-:root{--navy:#071521;--navy2:#0b1d2d;--blue:#2792ff;--sky:#64b8ff;--ink:#11243a;--muted:#5c6f85;--pale:#f4f8fc;--line:#d9e4ef;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);line-height:1.65}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:rgba(5,17,28,.96);color:white;border-bottom:1px solid #203243;backdrop-filter:blur(10px)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px;font-weight:750}.monogram{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#fff,#76c4ff);color:#082039;font-size:18px;font-weight:900}.brand small{display:block;color:#b7c7d7;font-size:12px;font-weight:400}.navlinks{display:flex;gap:26px;font-size:14px;color:#dbe7f2}.navlinks a:hover{color:var(--sky)}.menu{display:none;background:none;color:white;border:1px solid #42566b;border-radius:8px;padding:8px 11px}
-.hero{background:radial-gradient(ellipse at 80% 20%,#123653 0,transparent 40%),linear-gradient(120deg,var(--navy),#0b1c2b);color:white;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:42px;align-items:center;padding:76px 0 82px}.eyebrow{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);font-weight:800}.hero h1{font-size:clamp(38px,5vw,58px);line-height:1.08;letter-spacing:-1.8px;margin:14px 0}.hero h1 span{color:var(--sky)}.hero h2{font-size:22px;font-weight:500;margin:0 0 15px}.hero p{max-width:550px;color:#d0dce8;margin:0 0 25px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 19px;border-radius:10px;font-weight:700;font-size:14px;border:1px solid transparent;transition:.2s}.btn.primary{background:var(--blue);color:white}.btn.primary:hover{background:#0879e8;transform:translateY(-1px)}.btn.ghost{border-color:#6b8298;color:white}.btn.ghost:hover{background:#ffffff12}.socials{display:flex;gap:18px;margin-top:23px;color:#dbe7f2;font-size:14px}.dashboard{background:#0b2133;border:1px solid #36536b;border-radius:18px;padding:18px;box-shadow:0 24px 70px #0008;transform:rotate(1deg)}.dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;font-weight:750}.dash-top small{color:#7fc6ff}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.metric{padding:12px;background:#102d44;border:1px solid #25435b;border-radius:10px}.metric small{display:block;color:#b9cbd9;font-size:10px}.metric strong{font-size:17px}.up{font-size:10px;color:#5be0b0}.charts{display:grid;grid-template-columns:1.1fr .9fr;gap:10px;margin-top:10px}.chart{min-height:125px;padding:12px;background:#102d44;border:1px solid #25435b;border-radius:10px}.chart-title{font-size:11px;color:#dce8f2}.bars{height:76px;display:flex;align-items:end;gap:5px;padding-top:10px}.bars i{display:block;flex:1;background:linear-gradient(#49b7ff,#177be0);border-radius:3px 3px 0 0}.donut{width:78px;height:78px;border-radius:50%;margin:12px auto;background:conic-gradient(#28a6ff 0 42%,#30d2a0 42% 72%,#8768ff 72% 88%,#dce8f2 88%);position:relative}.donut:after{content:"";position:absolute;inset:19px;border-radius:50%;background:#102d44}
-section{padding:70px 0}.section-head{margin-bottom:28px}.section-head h2{font-size:30px;line-height:1.2;margin:0 0 9px;letter-spacing:-.7px}.section-head p{margin:0;color:var(--muted)}.underline{width:42px;height:4px;border-radius:4px;background:var(--blue);margin-top:12px}.about{background:#fff}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}.about-copy p{color:#31465d}.facts{display:flex;gap:24px;flex-wrap:wrap;margin-top:25px;font-size:13px;font-weight:700}.fact{display:flex;gap:9px;align-items:center}.fact-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#edf5fd;color:#187cdb;font-size:17px}.skill-panel{border:1px solid var(--line);background:var(--pale);border-radius:14px;padding:25px}.skill-panel h3{margin:0 0 20px;font-size:17px}.skill{margin:17px 0}.skill-label{display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:700}.skill-label span:last-child{font-weight:500;color:var(--muted);font-size:12px}.track{height:7px;border-radius:10px;background:#dce7f1;margin-top:8px;overflow:hidden}.track i{height:100%;display:block;border-radius:10px;background:linear-gradient(90deg,#1689f8,#55baff)}
-.projects{background:linear-gradient(120deg,var(--navy),#0c2030);color:white}.projects .section-head p{color:#c1cfdd}.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project{border:1px solid #355067;border-radius:13px;overflow:hidden;background:#0b1c2b;transition:.2s}.project:hover{transform:translateY(-4px);border-color:#5baeff}.project-visual{height:160px;padding:16px;background:linear-gradient(135deg,#123a59,#0b2031);display:flex;flex-direction:column;justify-content:space-between}.pv-title{font-size:12px;font-weight:700;color:#dcefff}.mini-metrics{display:flex;gap:7px}.mini-metrics span{flex:1;background:#174563;border:1px solid #2c6288;padding:8px 6px;border-radius:7px;font-size:10px;color:#c7e9ff}.mini-bars{display:flex;align-items:end;height:55px;gap:6px}.mini-bars i{flex:1;background:#279bff;border-radius:3px 3px 0 0}.project-body{padding:18px}.project-body h3{margin:0 0 7px;font-size:17px}.project-body p{font-size:13px;color:#c5d2df;margin:0 0 14px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}.tag{font-size:11px;border:1px solid #31526c;background:#102a3e;color:#c9e7ff;padding:3px 9px;border-radius:30px}.project-link{font-size:13px;color:#65baff;font-weight:700}.note{font-size:12px;color:#a9bdce;margin-top:18px}
-.certs{background:#f5f8fc}.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cert{background:white;border:1px solid var(--line);border-radius:12px;padding:19px}.cert-icon{font-size:25px;margin-bottom:10px}.cert h3{font-size:14px;line-height:1.4;margin:0 0 6px}.cert p{font-size:12px;color:var(--muted);margin:0}
-.contact{background:#081725;color:white;padding:52px 0}.contact-grid{display:grid;grid-template-columns:1.2fr 1fr auto;gap:28px;align-items:center}.contact h2{margin:0 0 8px;font-size:25px}.contact p{color:#c0cedb;margin:0;font-size:14px}.contact-details{font-size:13px;display:grid;gap:8px;color:#d8e5ef}.contact-details a:hover{color:var(--sky)}footer{background:#06121d;color:#9eb0c1;border-top:1px solid #203243;padding:18px 0;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media(max-width:850px){.hero-grid{grid-template-columns:1fr;padding:55px 0}.dashboard{max-width:600px}.about-grid{grid-template-columns:1fr;gap:28px}.project-grid{grid-template-columns:repeat(2,1fr)}.cert-grid{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr 1fr}.contact-grid .btn{justify-self:start}}
-@media(max-width:600px){.nav{height:64px}.navlinks{display:none;position:absolute;top:64px;left:0;right:0;padding:18px 5%;background:#071521;flex-direction:column;gap:16px;border-bottom:1px solid #203243}.navlinks.open{display:flex}.menu{display:block}.brand{font-size:13px}.hero-grid{gap:28px;padding:45px 0}.hero h1{font-size:39px}.hero h2{font-size:19px}.metrics{grid-template-columns:1fr}.metric{display:flex;justify-content:space-between;align-items:center}.charts{grid-template-columns:1fr}.chart{min-height:100px}.about-grid{gap:24px}section{padding:52px 0}.section-head h2{font-size:27px}.project-grid,.cert-grid{grid-template-columns:1fr}.project-visual{height:150px}.contact-grid{grid-template-columns:1fr}.contact-grid .btn{width:100%}.facts{gap:12px}.skill-panel{padding:19px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio de João Victor Magalhães - Analista de Dados" />
+  <title>João Victor Magalhães | Analista de Dados</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg-soft:#111a2e;
+      --panel:#121d2f;
+      --card:#18263d;
+      --primary:#5aa7ff;
+      --primary-2:#7ae7ff;
+      --text:#eaf2ff;
+      --muted:#9bb0c9;
+      --line:#23314e;
+      --success:#67e8a5;
+      --shadow:0 20px 40px rgba(0,0,0,.22);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      background:linear-gradient(180deg,#0b1020 0%,#0f172a 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%}
+
+    .container{
+      width:min(1180px,calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:99;
+      backdrop-filter:blur(10px);
+      background:rgba(11,16,32,.8);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:74px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+
+    .brand-mark{
+      width:38px;height:38px;border-radius:12px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#07111d;
+      font-weight:900;
+      box-shadow:var(--shadow);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    .nav-links a{
+      transition:.2s ease;
+    }
+    .nav-links a:hover{color:var(--text)}
+
+    .menu-btn{
+      display:none;
+      background:none;border:none;color:var(--text);
+      font-size:1.8rem;cursor:pointer;
+    }
+
+    .hero{
+      padding:84px 0 80px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(90,167,255,.25), transparent 25%),
+        radial-gradient(circle at 80% 15%, rgba(122,231,255,.2), transparent 18%),
+        linear-gradient(180deg,#0b1020 0%,#0d1729 100%);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      align-items:center;
+      gap:50px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      border:1px solid rgba(122,231,255,.35);
+      background:rgba(122,231,255,.08);
+      border-radius:999px;
+      color:var(--primary-2);
+      font-size:.78rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:clamp(2.6rem,5vw,5rem);
+      line-height:1.05;
+      margin:0 0 14px;
+      letter-spacing:-.06em;
+    }
+
+    h1 span{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .subtitle{
+      font-size:clamp(1.05rem,2vw,1.5rem);
+      color:#dce9ff;
+      margin-bottom:18px;
+    }
+
+    .lead{
+      color:var(--muted);
+      font-size:1.06rem;
+      max-width:620px;
+      margin:0 0 26px;
+    }
+
+    .actions{
+      display:flex;flex-wrap:wrap;gap:14px;margin:22px 0 28px;
+    }
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      border-radius:12px;font-weight:700;padding:14px 22px;
+      transition:.25s ease;border:1px solid transparent;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),#2697ff);
+      color:#061320;
+      box-shadow:var(--shadow);
+    }
+
+    .btn-primary:hover{transform:translateY(-2px)}
+
+    .btn-ghost{
+      border-color:rgba(122,231,255,.3);
+      color:var(--text);
+      background:rgba(255,255,255,.02);
+    }
+
+    .btn-ghost:hover{
+      background:rgba(122,231,255,.06);
+      border-color:rgba(122,231,255,.5);
+    }
+
+    .socials{
+      display:flex;flex-wrap:wrap;gap:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .socials a:hover{color:var(--text)}
+
+    .hero-card{
+      background:linear-gradient(180deg,rgba(24,38,61,.8),rgba(18,29,47,.95));
+      border:1px solid rgba(122,231,255,.18);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -30% -60% auto;
+      width:260px;height:260px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(122,231,255,.18), transparent 65%);
+    }
+
+    .dash-head{
+      display:flex;align-items:center;justify-content:space-between;
+      padding-bottom:14px;border-bottom:1px solid var(--line);
+      margin-bottom:18px;
+    }
+
+    .dash-head strong{font-size:1rem}
+    .badge{
+      background:rgba(122,231,255,.12);
+      color:var(--primary-2);
+      border:1px solid rgba(122,231,255,.25);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:.75rem;font-weight:700;
+    }
+
+    .stats{
+      display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));
+      gap:16px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.05);
+      border-radius:16px;
+      padding:16px 14px;
+    }
+
+    .stat small{
+      display:block;color:var(--muted);font-size:.8rem;margin-bottom:8px
+    }
+
+    .stat strong{
+      display:block;font-size:1.45rem;letter-spacing:-.04em;
+      margin-bottom:6px;
+    }
+    .stat .up{
+      font-size:.8rem;color:var(--success);font-weight:700;
+    }
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:42px;
+    }
+
+    .section-title h2{
+      font-size:clamp(2rem,4vw,3rem);
+      margin:0 0 10px;
+      letter-spacing:-.06em;
+    }
+
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:38px;
+      align-items:center;
+    }
+
+    .about-card{
+      background:rgba(255,255,255,.02);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:28px;
+    }
+
+    .about-card p{
+      color:var(--muted);
+      margin:0 0 18px;
+      font-size:1rem;
+    }
+
+    .facts{
+      display:grid;grid-template-columns:repeat(2,minmax(160px,1fr));
+      gap:14px;margin-top:20px;
+    }
+
+    .fact{
+      display:flex;align-items:center;gap:10px;
+      background:rgba(255,255,255,.02);
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:14px 16px;
+      color:#dfeeff;
+    }
+    .fact .icon{font-size:1.2rem}
+
+    .skill-box{
+      background:linear-gradient(180deg,#111d2f,#0f172a);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px 22px;
+    }
+
+    .skill{
+      margin-bottom:18px;
+    }
+    .skill:last-child{margin-bottom:0}
+    .skill-top{
+      display:flex;justify-content:space-between;gap:12px;
+      color:#edf5ff;font-weight:600;margin-bottom:8px;
+    }
+    .skill-top span:last-child{
+      color:var(--muted);font-size:.84rem;font-weight:500;
+    }
+    .track{
+      height:10px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;
+    }
+    .track i{
+      display:block;height:100%;border-radius:inherit;
+      background:linear-gradient(90deg,var(--primary),var(--primary-2));
+    }
+
+    .projects{
+      background:rgba(255,255,255,.02);
+      border-top:1px solid rgba(255,255,255,.04);
+      border-bottom:1px solid rgba(255,255,255,.04);
+    }
+
+    .project-grid{
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;
+    }
+
+    .project{
+      background:linear-gradient(180deg,#121d2f,#0f172a);
+      border:1px solid var(--line);
+      border-radius:22px;overflow:hidden;box-shadow:var(--shadow);
+    }
+
+    .project-visual{
+      background:linear-gradient(135deg,#0c1830,#172c47);
+      padding:22px 20px 20px;
+      min-height:170px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .pv-title{
+      font-size:.84rem;text-transform:uppercase;letter-spacing:.08em;
+      color:var(--primary-2);margin-bottom:22px;
+    }
+
+    .mini-metrics{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .mini{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.05);
+      border-radius:12px;padding:12px 10px;
+    }
+    .mini span{display:block;font-size:.74rem;color:var(--muted);margin-bottom:6px}
+    .mini b{font-size:1rem;color:#eef5ff}
+
+    .project-body{
+      padding:20px 20px 22px;
+    }
+
+    .project-body p{
+      color:var(--muted);margin:0 0 16px;
+      line-height:1.7;
+    }
+
+    .tags{
+      display:flex;flex-wrap:wrap;gap:8px;
+    }
+
+    .tags span{
+      background:rgba(90,167,255,.08);
+      border:1px solid rgba(90,167,255,.18);
+      color:var(--primary-2);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:.75rem;font-weight:700;
+    }
+
+    .cert-grid{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;
+    }
+
+    .cert{
+      background:rgba(255,255,255,.02);border:1px solid var(--line);
+      border-radius:18px;padding:24px 18px;text-align:center;
+    }
+
+    .cert-icon{
+      width:64px;height:64px;border-radius:16px;margin:0 auto 16px;
+      display:grid;place-items:center;font-size:2rem;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#071320;
+      box-shadow:var(--shadow);
+    }
+
+    .cert h3{
+      margin:0 0 8px;font-size:1.08rem;letter-spacing:-.03em;
+    }
+    .cert p{
+      margin:0;color:var(--muted);font-size:.92rem;line-height:1.6;
+    }
+
+    .contact{
+      padding:88px 0 100px;
+      background:
+        radial-gradient(circle at 15% 25%, rgba(90,167,255,.18), transparent 25%),
+        linear-gradient(180deg,#0b1020 0%,#0f172a 100%);
+      border-top:1px solid rgba(255,255,255,.04);
+    }
+
+    .contact-card{
+      background:linear-gradient(180deg,#131f31,#0d1729);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:34px 26px;
+      text-align:center;
+      max-width:820px;margin:0 auto;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-card h2{
+      margin:0 0 12px;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.05em;
+    }
+
+    .contact-card p{
+      margin:0 auto 24px;max-width:640px;color:var(--muted);font-size:1.04rem;
+    }
+
+    .contact-actions{
+      display:flex;flex-wrap:wrap;justify-content:center;gap:14px;
+    }
+
+    footer{
+      padding:20px 0 32px;
+      border-top:1px solid rgba(255,255,255,.04);
+      color:var(--muted);
+      text-align:center;
+      font-size:.92rem;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,.about-grid,.project-grid,.cert-grid{
+        grid-template-columns:1fr 1fr;
+      }
+      .project-grid{grid-template-columns:1fr}
+      .cert-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .hero-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 640px){
+      .nav-links{
+        display:none;
+        position:absolute;top:74px;left:0;right:0;
+        background:rgba(11,16,32,.98);
+        border-bottom:1px solid rgba(255,255,255,.06);
+        padding:18px 16px;
+        flex-direction:column;align-items:flex-start;
+      }
+
+      .menu-btn{display:block}
+      .actions,.contact-actions{flex-direction:column}
+      .btn{width:100%}
+      .facts,.stats,.cert-grid,.about-grid{grid-template-columns:1fr}
+      .project-grid,.cert-grid{grid-template-columns:1fr}
+      section{padding:72px 0}
+    }
+  </style>
 </head>
 <body>
-<header><div class="wrap nav">
-<a class="brand" href="#inicio"><span class="monogram">JM</span><span>João Victor Magalhães<small>Analista de Dados</small></span></a>
-<nav class="navlinks" id="navlinks"><a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#certificados">Certificados</a><a href="#contato">Contato</a></nav>
-<button class="menu" id="menu" aria-label="Abrir menu">☰</button>
-</div></header>
-<main>
-<section class="hero" id="inicio"><div class="wrap hero-grid">
-<div><div class="eyebrow">Olá, eu sou</div><h1>João Victor <span>Magalhães</span></h1><h2>Analista de Dados | Power BI</h2>
-<p>Transformo dados em informações claras para apoiar decisões e gerar resultados. Trabalho com Power BI, SQL e Excel, desenvolvendo análises e dashboards com foco nas necessidades do negócio.</p>
-<div class="actions"><a class="btn primary" href="#projetos">▦ &nbsp; Ver projetos</a><a class="btn ghost" href="mailto:seuemail@exemplo.com?subject=Solicita%C3%A7%C3%A3o%20de%20curr%C3%ADculo">↓ &nbsp; Solicitar currículo</a></div>
-<div class="socials"><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="#contato">E-mail ↗</a></div></div>
-<div class="dashboard" aria-label="Ilustração de um dashboard de vendas"><div class="dash-top"><span>Visão geral</span><small>▮ Power BI</small></div>
-<div class="metrics"><div class="metric"><small>Receita total</small><strong>R$ 1,25 mi</strong><div class="up">↑ 12,5%</div></div><div class="metric"><small>Total de vendas</small><strong>8.532</strong><div class="up">↑ 6,3%</div></div><div class="metric"><small>Ticket médio</small><strong>R$ 146,50</strong><div class="up">↑ 4,7%</div></div></div>
-<div class="charts"><div class="chart"><div class="chart-title">Vendas por mês</div><div class="bars"><i style="height:35%"></i><i style="height:55%"></i><i style="height:43%"></i><i style="height:68%"></i><i style="height:60%"></i><i style="height:82%"></i><i style="height:72%"></i><i style="height:95%"></i><i style="height:78%"></i><i style="height:100%"></i></div></div><div class="chart"><div class="chart-title">Vendas por categoria</div><div class="donut"></div></div></div></div>
-</div></section>
-<section class="about" id="sobre"><div class="wrap about-grid"><div><div class="section-head"><h2>Sobre mim</h2><div class="underline"></div></div>
-<p class="about-copy">Sou um profissional em desenvolvimento na área de Análise de Dados, interessado em transformar dados em insights úteis para o negócio. Tenho experiência prática com criação de dashboards no Power BI, consultas SQL e análise de dados com Excel.</p>
-<p class="about-copy">Busco aprimorar continuamente minhas habilidades por meio de projetos práticos, estudos e novos desafios, sempre valorizando a clareza visual, a qualidade dos dados e a comunicação dos resultados.</p>
-<div class="facts"><div class="fact"><span class="fact-icon">⌖</span> Brasil</div><div class="fact"><span class="fact-icon">⌂</span> Aprendizado contínuo</div><div class="fact"><span class="fact-icon">◎</span> Foco em resultados</div></div></div>
-<div class="skill-panel"><h3>Principais competências</h3>
-<div class="skill"><div class="skill-label"><span>Power BI / DAX</span><span>Intermediário</span></div><div class="track"><i style="width:72%"></i></div></div>
-<div class="skill"><div class="skill-label"><span>SQL</span><span>Intermediário</span></div><div class="track"><i style="width:68%"></i></div></div>
-<div class="skill"><div class="skill-label"><span>Excel</span><span>Intermediário</span></div><div class="track"><i style="width:76%"></i></div></div>
-<div class="skill"><div class="skill-label"><span>Modelagem de dados</span><span>Em desenvolvimento</span></div><div class="track"><i style="width:58%"></i></div></div>
-<div class="skill"><div class="skill-label"><span>Storytelling com dados</span><span>Em desenvolvimento</span></div><div class="track"><i style="width:55%"></i></div></div>
-</div></div></section>
-<section class="projects" id="projetos"><div class="wrap"><div class="section-head"><h2>Projetos em destaque</h2><div class="underline"></div><p>Estudos de caso para demonstrar habilidades de análise, visualização e comunicação de dados.</p></div>
-<div class="project-grid">
-<article class="project"><div class="project-visual"><div class="pv-title">01 / Vendas e faturamento</div><div class="mini-metrics"><span>Receita<br><b>R$ 1,25 mi</b></span><span>Vendas<br><b>8.532</b></span><span>Ticket<br><b>R$ 146</b></span></div><div class="mini-bars"><i style="height:35%"></i><i style="height:60%"></i><i style="height:48%"></i><i style="height:78%"></i><i style="height:65%"></i><i style="height:92%"></i><i style="height:75%"></i><i style="height:100%"></i></div></div><div class="project-body"><h3>Dashboard de Vendas</h3><p>Análise de receita, volume de vendas, ticket médio e desempenho por período e categoria.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Excel</span></div><a class="project-link" href="https://github.com/" target="_blank" rel="noreferrer">Adicionar repositório ↗</a></div></article>
-<article class="project"><div class="project-visual"><div class="pv-title">02 / Recursos humanos</div><div class="mini-metrics"><span>Headcount<br><b>Visão geral</b></span><span>Turnover<br><b>Indicadores</b></span><span>Equipe<br><b>Perfil</b></span></div><div class="mini-bars"><i style="height:75%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:45%"></i><i style="height:65%"></i><i style="height:82%"></i><i style="height:58%"></i></div></div><div class="project-body"><h3>Análise de RH</h3><p>Estudo demonstrativo de quadro de colaboradores, turnover e distribuição por área.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">Excel</span></div><a class="project-link" href="https://github.com/" target="_blank" rel="noreferrer">Adicionar repositório ↗</a></div></article>
-<article class="project"><div class="project-visual"><div class="pv-title">03 / Estoque e operações</div><div class="mini-metrics"><span>Estoque<br><b>Por produto</b></span><span>Giro<br><b>Por período</b></span><span>Alertas<br><b>Reposição</b></span></div><div class="mini-bars"><i style="height:45%"></i><i style="height:70%"></i><i style="height:60%"></i><i style="height:85%"></i><i style="height:50%"></i><i style="height:95%"></i><i style="height:67%"></i><i style="height:78%"></i></div></div><div class="project-body"><h3>Controle de Estoque</h3><p>Indicadores de nível de estoque, giro de produtos e identificação de possíveis rupturas.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">SQL</span></div><a class="project-link" href="https://github.com/" target="_blank" rel="noreferrer">Adicionar repositório ↗</a></div></article>
-</div><p class="note">Nota: os números e cenários dos cards são ilustrativos. Substitua-os por dados reais de projetos concluídos antes de publicar.</p>
-</div></section>
-<section class="certs" id="certificados"><div class="wrap"><div class="section-head"><h2>Certificados e formação</h2><div class="underline"></div><p>Inclua aqui cursos concluídos e credenciais que você possa comprovar.</p></div>
-<div class="cert-grid"><article class="cert"><div class="cert-icon">📊</div><h3>Power BI — dashboards e DAX</h3><p>Adicionar instituição e ano</p></article><article class="cert"><div class="cert-icon">🗄️</div><h3>SQL para Análise de Dados</h3><p>Adicionar instituição e ano</p></article><article class="cert"><div class="cert-icon">📗</div><h3>Excel para análise de dados</h3><p>Adicionar instituição e ano</p></article><article class="cert"><div class="cert-icon">🎓</div><h3>Formação complementar</h3><p>Adicionar curso e instituição</p></article></div></div></section>
-<section class="contact" id="contato"><div class="wrap contact-grid"><div><h2>Vamos conversar?</h2><p>Estou aberto a oportunidades, colaborações e projetos na área de dados.</p></div><div class="contact-details"><a href="mailto:seuemail@exemplo.com">✉ &nbsp; seuemail@exemplo.com</a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">▣ &nbsp; Adicione seu LinkedIn</a><a href="https://github.com/" target="_blank" rel="noreferrer">⌘ &nbsp; Adicione seu GitHub</a></div><a class="btn primary" href="mailto:seuemail@exemplo.com?subject=Vamos%20conversar">✉ &nbsp; Enviar mensagem</a></div></section>
-</main>
-<footer><div class="wrap footer-inner"><span>© <span id="year"></span> João Victor Magalhães</span><span>Portfólio de Análise de Dados</span></div></footer>
-<script>
-const menu=document.getElementById('menu'), links=document.getElementById('navlinks');
-menu.addEventListener('click',()=>links.classList.toggle('open'));
-links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
-</body></html>
+
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <span class="brand-mark">JM</span>
+        <span>João Victor</span>
+      </a>
+
+      <nav class="nav-links" id="navlinks">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Olá, eu sou</div>
+          <h1>João Victor <span>Magalhães</span></h1>
+          <div class="subtitle">Analista de Dados | Power BI | SQL</div>
+          <p class="lead">
+            Transformo dados em informação clara para apoiar decisões estratégicas.
+            Trabalho com dashboard, análise de negócio, modelagem e storytelling com dados para gerar impacto real.
+          </p>
+
+          <div class="actions">
+            <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+            <a href="#contato" class="btn btn-ghost">Contato</a>
+          </div>
+
+          <div class="socials">
+            <a href="https://github.com/jvicttor-dev" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="mailto:seuemail@exemplo.com">Email ↗</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Dashboard analítico">
+          <div class="dash-head">
+            <strong>Visão geral</strong>
+            <span class="badge">Power BI</span>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <small>Receita total</small>
+              <strong>R$ 1,25M</strong>
+              <div class="up">↑ 12,5%</div>
+            </div>
+            <div class="stat">
+              <small>Vendas</small>
+              <strong>8.532</strong>
+              <div class="up">↑ 8,2%</div>
+            </div>
+            <div class="stat">
+              <small>Clientes</small>
+              <strong>2.847</strong>
+              <div class="up">↑ 5,1%</div>
+            </div>
+            <div class="stat">
+              <small>Conversão</small>
+              <strong>24,8%</strong>
+              <div class="up">↑ 3,4%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sobre mim</h2>
+          <p>Profissional em desenvolvimento com foco em dados e decisões</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <p>
+              Sou um profissional apaixonado por análise de dados e por transformar informações em insights valiosos para o negócio.
+              Tenho foco em Power BI, SQL, Excel e visualização de dados para apoiar decisões com clareza.
+            </p>
+
+            <p>
+              Acredito que a melhor análise não é só técnica, mas também estratégica.
+              Por isso, busco unir dados, storytelling e visão de negócios para criar soluções que realmente façam diferença.
+            </p>
+
+            <div class="facts">
+              <div class="fact"><span class="icon">📍</span> Brasil</div>
+              <div class="fact"><span class="icon">📈</span> Aprendizado contínuo</div>
+              <div class="fact"><span class="icon">💡</span> Solução de problemas</div>
+              <div class="fact"><span class="icon">🚀</span> Foco em resultados</div>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <div class="skill">
+              <div class="skill-top"><span>Power BI / DAX</span><span>Intermediário</span></div>
+              <div class="track"><i style="width:72%"></i></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-top"><span>SQL</span><span>Intermediário</span></div>
+              <div class="track"><i style="width:68%"></i></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-top"><span>Excel</span><span>Intermediário</span></div>
+              <div class="track"><i style="width:76%"></i></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-top"><span>Modelagem de dados</span><span>Em desenvolvimento</span></div>
+              <div class="track"><i style="width:58%"></i></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-top"><span>Storytelling com dados</span><span>Em desenvolvimento</span></div>
+              <div class="track"><i style="width:55%"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projetos">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projetos em destaque</h2>
+          <p>Estudos de caso e dashboards desenvolvidos para demonstrar análise e visão de negócio</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-visual">
+              <div class="pv-title">01 / Vendas e faturamento</div>
+              <div class="mini-metrics">
+                <div class="mini"><span>Receita</span><b>R$ 1,25 mi</b></div>
+                <div class="mini"><span>Vendas</span><b>8.532</b></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <p>Dashboard de performance comercial com foco em crescimento de receita, comportamento de clientes e evolução mensal.</p>
+              <div class="tags">
+                <span>Power BI</span>
+                <span>DAX</span>
+                <span>SQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <div class="pv-title">02 / Recursos humanos</div>
+              <div class="mini-metrics">
+                <div class="mini"><span>Headcount</span><b>Visão geral</b></div>
+                <div class="mini"><span>Turnover</span><b>Indicadores</b></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <p>Análise de indicadores de RH, retenção, crescimento de equipe e estabilidade por área e turno.</p>
+              <div class="tags">
+                <span>Excel</span>
+                <span>Análise</span>
+                <span>Dashboard</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <div class="pv-title">03 / Estoque e operações</div>
+              <div class="mini-metrics">
+                <div class="mini"><span>Estoque</span><b>Por produto</b></div>
+                <div class="mini"><span>Giro</span><b>Por período</b></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <p>Monitoramento de estoque e eficiência operacional, avaliando giro, demanda e produtividade por categoria.</p>
+              <div class="tags">
+                <span>SQL</span>
+                <span>Power BI</span>
+                <span>Processos</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificados">
+      <div class="container">
+        <div class="section-title">
+          <h2>Certificações e formação</h2>
+          <p>Aprendizado constante e busca por conhecimento técnico</p>
+        </div>
+
+        <div class="cert-grid">
+          <article class="cert">
+            <div class="cert-icon">📊</div>
+            <h3>Power BI</h3>
+            <p>Dashboards, indicadores, DAX e visualização de dados</p>
+          </article>
+
+          <article class="cert">
+            <div class="cert-icon">🗄️</div>
+            <h3>SQL</h3>
+            <p>Consultas, filtros, joins e análise de dados estruturados</p>
+          </article>
+
+          <article class="cert">
+            <div class="cert-icon">📈</div>
+            <h3>Excel</h3>
+            <p>Tabelas dinâmicas, fórmulas e análise de performance</p>
+          </article>
+
+          <article class="cert">
+            <div class="cert-icon">🎓</div>
+            <h3>Continuidade</h3>
+            <p>Cursos, estudos e projetos práticos em constante evolução</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container">
+        <div class="contact-card">
+          <h2>Vamos conversar?</h2>
+          <p>Estou aberto a oportunidades, colaborações e projetos na área de dados. Se você quiser trocar uma ideia, me chama!</p>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:seuemail@exemplo.com">Enviar email</a>
+            <a class="btn btn-ghost" href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> João Victor Magalhães · Portfólio de Analista de Dados
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navlinks');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 640) navLinks.style.display = 'none';
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
